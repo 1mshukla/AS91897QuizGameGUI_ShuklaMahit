@@ -12,6 +12,13 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 {
     public partial class Form1 : Form
     {
+        //declare costants
+        const int GRAVITY = 30;
+        const int MOVE = 5;
+        //declare variables
+        bool left;
+        bool right;
+        bool jump;
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +26,33 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            //declare variables
+            
 
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                left = true;
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                right = true;
+            }
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                left = false;
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                right = false;
+            }
         }
     }
 }
