@@ -13,11 +13,13 @@ namespace AS91897QuizGameGUI_ShuklaMahit
     public partial class Form1 : Form
     {
         //declare costants
-        const int GRAVITY = 30;
         const int MOVE = 5;
         //declare variables
+        int gravity = 2;
+        int jumpUp = 20;
         bool left;
         bool right;
+        bool fall;
         bool jump;
         public Form1()
         {
@@ -41,6 +43,14 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 right = true;
             }
+            if (jump == false)
+            {
+                if (e.KeyCode == Keys.Space)
+                {
+                    jump = true;
+                }
+            }
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -52,6 +62,56 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             else if (e.KeyCode == Keys.Right)
             {
                 right = false;
+            }
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            
+            if (right == true)
+            {
+                player.Left += MOVE; 
+            }
+            else if (left == true)
+            {
+                player.Left -= MOVE;
+            }
+            if (jump == true)
+            {
+                if (jumpUp > 0)
+                {
+                    player.Top -= jumpUp;
+                    jumpUp -= 1;
+                }
+                else
+                {
+                    jump = false;
+                    jumpUp = 20;
+                }
+                
+
+            }
+            if (player.Bounds.IntersectsWith(answerA.Bounds) == false && player.Bounds.IntersectsWith(answerB.Bounds) == false && player.Bounds.IntersectsWith(answerC.Bounds) == false && player.Bounds.IntersectsWith(answerD.Bounds) == false && player.Bounds.IntersectsWith(block1.Bounds) == false && player.Bounds.IntersectsWith(block2.Bounds) == false && player.Bounds.IntersectsWith(block3.Bounds) == false && player.Bounds.IntersectsWith(block4.Bounds) == false)
+            {
+
+            }
+            if (player.Bottom < this.Height)
+            {
+                fall = true;
+            }
+
+            //induces fall and stops if reached bottom
+            if (fall == true)
+            {
+                if (player.Bottom > this.Height - 40)
+                {
+                    fall = false;
+                }
+                else
+                {
+                    player.Top += gravity;  
+                }
             }
         }
     }
