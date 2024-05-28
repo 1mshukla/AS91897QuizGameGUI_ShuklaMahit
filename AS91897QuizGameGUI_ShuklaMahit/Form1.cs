@@ -43,7 +43,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 right = true;
             }
-            if (jump == false)
+            if (jump != true && fall != true)
             {
                 if (e.KeyCode == Keys.Space)
                 {
@@ -94,11 +94,18 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
             if (player.Bounds.IntersectsWith(answerA.Bounds) == false && player.Bounds.IntersectsWith(answerB.Bounds) == false && player.Bounds.IntersectsWith(answerC.Bounds) == false && player.Bounds.IntersectsWith(answerD.Bounds) == false && player.Bounds.IntersectsWith(block1.Bounds) == false && player.Bounds.IntersectsWith(block2.Bounds) == false && player.Bounds.IntersectsWith(block3.Bounds) == false && player.Bounds.IntersectsWith(block4.Bounds) == false)
             {
-
+                
             }
             if (player.Bottom < this.Height)
             {
-                fall = true;
+                if (player.Bottom == answerD.Top && (player.Right > answerD.Left && player.Left < answerD.Right))
+                {
+                    fall = false;
+                }
+                else
+                {
+                    fall = true;
+                }
             }
 
             //induces fall and stops if reached bottom

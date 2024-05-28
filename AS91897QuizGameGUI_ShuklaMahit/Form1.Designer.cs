@@ -53,7 +53,7 @@
             // player
             // 
             this.player.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.player.Location = new System.Drawing.Point(421, 329);
+            this.player.Location = new System.Drawing.Point(12, 39);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(100, 50);
             this.player.TabIndex = 0;
