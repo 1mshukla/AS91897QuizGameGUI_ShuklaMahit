@@ -34,17 +34,17 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             
 
         }
-        private void Questions()
-        {
-            //string line;
-            using (StreamReader things = File.OpenText("QuizQuestions.csv"))
-            {
-                while (things.ReadLine() != null)
-                {
-                    MessageBox.Show($"Getting questions; {things}");
-                }
-            }
-        }
+        //private void Questions()
+        //{
+        //    //string line;
+        //    using (StreamReader things = File.OpenText("QuizQuestions.csv"))
+        //    {
+        //        while (things.ReadLine() != null)
+        //        {
+        //            MessageBox.Show($"Getting questions; {things}");
+        //        }
+        //    }
+        //}
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -112,13 +112,51 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
             if (player.Bottom < this.Height)
             {
-                if (player.Bottom == answerD.Top && (player.Right > answerD.Left && player.Left < answerD.Right))
-                {
-                    fall = false;
-                }
-                else
-                {
+                //if (player.Bottom == answerD.Top && (player.Right > answerD.Left && player.Left < answerD.Right))
+                //{
+                //    fall = false;
+                //}
+                //else if (player.Bottom == answerC.Top && (player.Right > answerC.Left && player.Left < answerC.Right))
+                //{
+                //    fall = false;
+                //}
+                //else if (player.Bottom == answerB.Top && (player.Right > answerB.Left && player.Left < answerB.Right))
+                //{
+                //    fall = false;
+                //}
+                //else if (player.Bottom == answerA.Top && (player.Right > answerA.Left && player.Left < answerA.Right))
+                //{
+                //    fall = false;
+                //}
+                //else if (player.Bottom == block1.Top && (player.Right > block1.Left && player.Left < block1.Right))
+                //{
+                //    fall = false;
+                //}
+                //else if (player.Bottom == block2.Top && (player.Right > block2.Left && player.Left < block2.Right) && fall == true)
+                //{
+                //    fall = false;
+                //}
+                //else if (player.Bottom == block3.Top && (player.Right > block3.Left && player.Left < block3.Right))
+                //{
+                //    fall = false;
+                //}
+                //else if (player.Bottom == block4.Top && (player.Right > block4.Left && player.Left < block4.Right))
+                //{
+                //    fall = false;
+                //}
+                
                     fall = true;
+                
+            }
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "object")
+                {
+                    if (player.Bounds.IntersectsWith(x.Bounds) && fall ==true)
+                    {
+                        fall = false;
+                    }
                 }
             }
 
@@ -136,9 +174,9 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Questions();
-        }
-    }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        ////    Questions();
+        //}
+    }   
 }
