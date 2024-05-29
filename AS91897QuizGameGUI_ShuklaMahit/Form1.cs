@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AS91897QuizGameGUI_ShuklaMahit
 {
@@ -24,6 +25,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -31,6 +33,17 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             //declare variables
             
 
+        }
+        private void Questions()
+        {
+            //string line;
+            using (StreamReader things = File.OpenText("QuizQuestions.csv"))
+            {
+                while (things.ReadLine() != null)
+                {
+                    MessageBox.Show($"Getting questions; {things}");
+                }
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -68,6 +81,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void timer_Tick(object sender, EventArgs e)
         {
+
             
             if (right == true)
             {
@@ -120,6 +134,11 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                     player.Top += gravity;  
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Questions();
         }
     }
 }
