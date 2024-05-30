@@ -83,14 +83,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         {
 
             
-            if (right == true)
-            {
-                player.Left += MOVE; 
-            }
-            else if (left == true)
-            {
-                player.Left -= MOVE;
-            }
+            
             if (jump == true)
             {
                 if (jumpUp > 0)
@@ -153,11 +146,33 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (x is PictureBox && (string)x.Tag == "object")
                 {
-                    if (player.Bounds.IntersectsWith(x.Bounds) && fall ==true)
+                    
+                    if (player.Bounds.IntersectsWith(x.Bounds) && right == true && fall == true)
+                    {
+                        right = false;
+                    }
+                    if (player.Bounds.IntersectsWith(x.Bounds) && left == true && fall == true)
+                    {
+                        left = false;
+                    }
+                    if (player.Bounds.IntersectsWith(x.Bounds) && jump == true && fall == true)
+                    {
+                        jump = false;
+                        fall = true;
+                    }
+                    if (player.Bounds.IntersectsWith(x.Bounds) && fall == true && player.Bottom > x.Top)
                     {
                         fall = false;
                     }
                 }
+            }
+            if (right == true)
+            {
+                player.Left += MOVE;
+            }
+            else if (left == true)
+            {
+                player.Left -= MOVE;
             }
 
             //induces fall and stops if reached bottom
