@@ -81,9 +81,6 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void timer_Tick(object sender, EventArgs e)
         {
-
-            
-            
             if (jump == true)
             {
                 if (jumpUp > 0)
@@ -99,73 +96,37 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 
 
             }
-            if (player.Bounds.IntersectsWith(answerA.Bounds) == false && player.Bounds.IntersectsWith(answerB.Bounds) == false && player.Bounds.IntersectsWith(answerC.Bounds) == false && player.Bounds.IntersectsWith(answerD.Bounds) == false && player.Bounds.IntersectsWith(block1.Bounds) == false && player.Bounds.IntersectsWith(block2.Bounds) == false && player.Bounds.IntersectsWith(block3.Bounds) == false && player.Bounds.IntersectsWith(block4.Bounds) == false)
-            {
-                
-            }
+            
             if (player.Bottom < this.Height)
             {
-                //if (player.Bottom == answerD.Top && (player.Right > answerD.Left && player.Left < answerD.Right))
-                //{
-                //    fall = false;
-                //}
-                //else if (player.Bottom == answerC.Top && (player.Right > answerC.Left && player.Left < answerC.Right))
-                //{
-                //    fall = false;
-                //}
-                //else if (player.Bottom == answerB.Top && (player.Right > answerB.Left && player.Left < answerB.Right))
-                //{
-                //    fall = false;
-                //}
-                //else if (player.Bottom == answerA.Top && (player.Right > answerA.Left && player.Left < answerA.Right))
-                //{
-                //    fall = false;
-                //}
-                //else if (player.Bottom == block1.Top && (player.Right > block1.Left && player.Left < block1.Right))
-                //{
-                //    fall = false;
-                //}
-                //else if (player.Bottom == block2.Top && (player.Right > block2.Left && player.Left < block2.Right) && fall == true)
-                //{
-                //    fall = false;
-                //}
-                //else if (player.Bottom == block3.Top && (player.Right > block3.Left && player.Left < block3.Right))
-                //{
-                //    fall = false;
-                //}
-                //else if (player.Bottom == block4.Top && (player.Right > block4.Left && player.Left < block4.Right))
-                //{
-                //    fall = false;
-                //}
-                
-                    fall = true;
-                
+                fall = true;
+
             }
 
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && (string)x.Tag == "object")
                 {
-                    
-                    if (player.Bounds.IntersectsWith(x.Bounds) && right == true && fall == true)
+                    if (player.Bounds.IntersectsWith(x.Bounds) && jump == true && player.Top < x.Bottom)
+                    {
+                        //jump = false;
+                        fall = true;
+                    }
+                    if (player.Bounds.IntersectsWith(x.Bounds) && right == true && fall == true && player.Bottom -2 > x.Top)
                     {
                         right = false;
                     }
-                    if (player.Bounds.IntersectsWith(x.Bounds) && left == true && fall == true)
+                    if (player.Bounds.IntersectsWith(x.Bounds) && left == true && fall == true && player.Bottom - 2 > x.Top)
                     {
                         left = false;
                     }
-                    if (player.Bounds.IntersectsWith(x.Bounds) && jump == true && fall == true)
-                    {
-                        jump = false;
-                        fall = true;
-                    }
-                    if (player.Bounds.IntersectsWith(x.Bounds) && fall == true && player.Bottom > x.Top)
+                    if (player.Bounds.IntersectsWith(x.Bounds))
                     {
                         fall = false;
                     }
                 }
             }
+            
             if (right == true)
             {
                 player.Left += MOVE;
