@@ -13,6 +13,8 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 {
     public partial class Form1 : Form
     {
+        //declare arrays
+        string[] questionBank = new string[10];
         //declare costants
         const int MOVE = 5;
         //declare variables
@@ -34,17 +36,23 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             
 
         }
-        //private void Questions()
-        //{
-        //    //string line;
-        //    using (StreamReader things = File.OpenText("QuizQuestions.csv"))
-        //    {
-        //        while (things.ReadLine() != null)
-        //        {
-        //            MessageBox.Show($"Getting questions; {things}");
-        //        }
-        //    }
-        //}
+        private void Questions()
+        {
+            string line;
+            using (StreamReader things = File.OpenText("QuizQuestions.csv"))
+            {
+                MessageBox.Show($"{things.ReadToEnd().Count(){);
+                //for (int i = 0; i < things.ReadToEnd().Count(); i++)
+                //{
+                //    if (things.ReadLine() != null)
+                //    {
+                //        line = things.ReadLine();
+                //        line = questionBank[i];
+                //    }
+                //}
+                
+            }
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -54,6 +62,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
             else if (e.KeyCode == Keys.Right)
             {
+                
                 right = true;
             }
             if (jump != true && fall != true)
@@ -150,9 +159,14 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        ////    Questions();
-        //}
+       
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            foreach (string d in questionBank)
+            {
+                MessageBox.Show(d);
+            }
+        }
     }   
 }
