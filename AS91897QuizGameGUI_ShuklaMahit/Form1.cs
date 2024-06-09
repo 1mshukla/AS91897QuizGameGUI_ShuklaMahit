@@ -40,17 +40,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         private void Questions()
         {
             
-            string line;
-            using (StreamReader things = File.OpenText("QuizQuestions.csv"))
-            {
-                
-                if (things.ReadLine() != null)
-                {
-                    line = things.ReadLine();
-                    questionBank[counter] = line;
-                    counter +=1;
-                }
-            }
+            
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -162,11 +152,23 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show($"{counter}");
-            foreach (string d in questionBank)
+            string line;
+            using (StreamReader things = File.OpenText("C:\\Users\\ANJANA\\Downloads\\QuizQuestions.csv"))
             {
-                listBox1.Items.Add(d);
+                
+                while (things.ReadLine() != null)
+                {
+                    
+                    line = things.ReadLine();
+                    questionBank[counter] = line;
+                    counter +=1;
+                }
             }
+            MessageBox.Show($"{counter}");
+            //foreach (string d in questionBank)
+            //{
+            //    listBox1.Items.Add(d);
+            //}
 
         }
     }   
