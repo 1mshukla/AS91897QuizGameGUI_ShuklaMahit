@@ -28,6 +28,9 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         public Play()
         {
             InitializeComponent();
+            
+            MessageBox.Show("hi");
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -46,6 +49,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         {
             if (e.KeyCode == Keys.Left)
             {
+
                 left = true;
             }
             else if (e.KeyCode == Keys.Right)
@@ -64,6 +68,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void Play_KeyUp_1(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Left)
             {
                 left = false;
@@ -109,6 +114,8 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void timerTick_Tick(object sender, EventArgs e)
         {
+            
+
             if (jump == true)
             {
                 if (jumpUp > 0)

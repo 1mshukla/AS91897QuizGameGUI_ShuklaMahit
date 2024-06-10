@@ -34,6 +34,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         {
             Play window = new Play();
             window.Show();
+            this.Hide();
 
             //string line;
             //using (StreamReader things = File.OpenText("QuizQuestions.csv"))
