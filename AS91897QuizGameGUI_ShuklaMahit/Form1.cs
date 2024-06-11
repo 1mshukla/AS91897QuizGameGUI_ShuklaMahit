@@ -30,11 +30,11 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             InitializeComponent();
 
         }
-        private void button1_Click_1(object sender, EventArgs e)
+        public void button1_Click_1(object sender, EventArgs e)
         {
             Play window = new Play();
             window.Show();
-            this.Hide();
+            //this.Hide();
 
             //string line;
             //using (StreamReader things = File.OpenText("QuizQuestions.csv"))

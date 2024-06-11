@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AS91897QuizGameGUI_ShuklaMahit
 {
     public partial class Play : Form
     {
         //declare arrays
-       // Dictionary
-        string[,] questionBank = new string[10];
+        // Dictionary
+        string[,] questionBank = { { },{ },{ },{ },{ },{ },{ },{ },{ },{ } };
         //declare costants
         const int MOVE = 5;
         //declare variables
@@ -43,7 +44,23 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void Questions()
         {
-
+            string line;
+            using (StreamReader things = File.OpenText("QuizQuestions.csv"))
+            {
+                for (int i = 1; i < File.ReadAllLines("QuizQuestions.csv").Length; i++)
+                {
+                    line = things.ReadLine();
+                    questionBank(i-1,0) = line;
+                    MessageBox.Show($"{questionBank[i]}");
+                    //counter += 1;
+                }
+                
+            }
+            
+            foreach (string d in questionBank)
+            {
+                listBox1.Items.Add(d);
+            }
 
         }
         private void Play_KeyDown_1(object sender, KeyEventArgs e)
