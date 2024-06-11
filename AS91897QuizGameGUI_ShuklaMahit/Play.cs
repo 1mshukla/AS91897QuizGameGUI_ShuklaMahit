@@ -13,7 +13,8 @@ namespace AS91897QuizGameGUI_ShuklaMahit
     public partial class Play : Form
     {
         //declare arrays
-        string[] questionBank = new string[6];
+       // Dictionary
+        string[,] questionBank = new string[10];
         //declare costants
         const int MOVE = 5;
         //declare variables
