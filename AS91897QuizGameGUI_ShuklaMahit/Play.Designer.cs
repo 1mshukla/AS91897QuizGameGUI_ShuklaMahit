@@ -169,6 +169,7 @@
             this.Controls.Add(this.answerB);
             this.Controls.Add(this.block4);
             this.Controls.Add(this.player);
+            this.KeyPreview = true;
             this.Name = "Play";
             this.Text = "Play";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Play_KeyDown_1);

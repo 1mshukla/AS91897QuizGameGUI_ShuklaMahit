@@ -33,8 +33,8 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         public void button1_Click_1(object sender, EventArgs e)
         {
             Play window = new Play();
-            window.Show();
-            //this.Hide();
+            window.ShowDialog();
+            this.Hide();
 
             //string line;
             //using (StreamReader things = File.OpenText("QuizQuestions.csv"))
@@ -55,21 +55,22 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             //}
 
         }
+        
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+        //private void pictureBox1_Click(object sender, EventArgs e)
+       // {
             //declare variables
             
 
-        }
-        private void Questions()
-        {
+        //}
+       // private void Questions()
+        //{
             
             
-        }
+        //}
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
+        //private void Form1_KeyDown(object sender, KeyEventArgs e)
+        //{
            // if (e.KeyCode == Keys.Left)
            // {
            //     left = true;
@@ -87,10 +88,10 @@ namespace AS91897QuizGameGUI_ShuklaMahit
            //     }
            // }
 
-        }
+        //}
 
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
-        {
+       // private void Form1_KeyUp(object sender, KeyEventArgs e)
+       // {//
           //  if (e.KeyCode == Keys.Left)
           //  {
           //      left = false;
@@ -100,10 +101,10 @@ namespace AS91897QuizGameGUI_ShuklaMahit
           //      right = false;
           //  }
 
-        }
+        //}
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
+        //private void timer_Tick(object sender, EventArgs e)
+        //{
             //if (jump == true)
             //{
             //    if (jumpUp > 0)
@@ -171,33 +172,9 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             //        player.Top += gravity;  
             //    }
             //}
-        }
+        //}
+    
+    }
 
-       
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-    }   
-}
+    
+}   

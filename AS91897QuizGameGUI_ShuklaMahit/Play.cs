@@ -15,7 +15,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
     {
         //declare arrays
         // Dictionary
-        string[,] questionBank = { { },{ },{ },{ },{ },{ },{ },{ },{ },{ } };
+        string[,] questionBank = new string[10, 5];//{ { },{ },{ },{ },{ },{ },{ },{ },{ },{ } };
         //declare costants
         const int MOVE = 5;
         //declare variables
@@ -45,14 +45,13 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         private void Questions()
         {
             string line;
-            using (StreamReader things = File.OpenText("QuizQuestions.csv"))
+            using (StreamReader things = File.OpenText("QuizQuestions final.csv"))
             {
-                for (int i = 1; i < File.ReadAllLines("QuizQuestions.csv").Length; i++)
+                for (int i = 1; i < File.ReadAllLines("QuizQuestions final.csv").Length; i++)
                 {
                     line = things.ReadLine();
-                    questionBank(i-1,0) = line;
-                    MessageBox.Show($"{questionBank[i]}");
-                    //counter += 1;
+                    questionBank[i-1, 0] = line;
+                    MessageBox.Show($"{questionBank[i-1,0]}");
                 }
                 
             }
@@ -65,6 +64,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         }
         private void Play_KeyDown_1(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Left)
             {
 
@@ -81,6 +81,11 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 {
                     jump = true;
                 }
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                System.Windows.Forms.Application.Exit();
+                //this.Close();
             }
         }
 
