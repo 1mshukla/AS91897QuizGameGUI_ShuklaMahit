@@ -15,7 +15,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
     {
         //declare arrays
         // Dictionary
-        string[,] questionBank = new string[10, 5];//{ { },{ },{ },{ },{ },{ },{ },{ },{ },{ } };
+        string[,] questionBank = new string[10, 5];
         //declare costants
         const int MOVE = 5;
         //declare variables
@@ -25,14 +25,34 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         bool right;
         bool fall;
         bool jump;
-        int counter = 0;
+        
 
         public Play()
         {
             InitializeComponent();
-            
-            MessageBox.Show("hi");
 
+            string line;
+            using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
+            {
+                for (int i = 1; i < File.ReadAllLines("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv").Length; i++)
+                {
+                    for (int j = 0; j < things.ReadLine.Split(',').Count; j++)
+                    {
+
+                    }
+                    //line = things.ReadLine();//.Split(',');
+                    string[] names = things.ReadLine().Split(',');
+                    MessageBox.Show($"{names[i]}");
+                    questionBank[i - 1, ] = line;//things.ReadLine().Split(',');
+                    //MessageBox.Show($"{questionBank[i - 1, 0]}");
+                }
+                //foreach (string d in questionBank)
+                //{
+                //
+                //    listBox1.Items.Add(d);
+                //}
+                
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -44,22 +64,9 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void Questions()
         {
-            string line;
-            using (StreamReader things = File.OpenText("QuizQuestions final.csv"))
-            {
-                for (int i = 1; i < File.ReadAllLines("QuizQuestions final.csv").Length; i++)
-                {
-                    line = things.ReadLine();
-                    questionBank[i-1, 0] = line;
-                    MessageBox.Show($"{questionBank[i-1,0]}");
-                }
-                
-            }
             
-            foreach (string d in questionBank)
-            {
-                listBox1.Items.Add(d);
-            }
+            
+            
 
         }
         private void Play_KeyDown_1(object sender, KeyEventArgs e)
@@ -84,7 +91,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
             if (e.KeyCode == Keys.Escape)
             {
-                System.Windows.Forms.Application.Exit();
+                Application.Exit();
                 //this.Close();
             }
         }
