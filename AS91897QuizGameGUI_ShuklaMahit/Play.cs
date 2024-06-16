@@ -30,21 +30,26 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         public Play()
         {
             InitializeComponent();
-
-            string line;
+            
+            //string line;
             using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
             {
-                for (int i = 1; i < File.ReadAllLines("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv").Length; i++)
+               
+                for (int i = 1; i == File.ReadAllLines("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv").Length; i++)
                 {
-                    for (int j = 0; j < things.ReadLine.Split(',').Count; j++)
+                    string[] line = new string[5];
+                    line = things.ReadLine().Split(',');
+                    
+                    for (int j = 0; j < line.Length; j++)
                     {
-
+                        MessageBox.Show($"{chars[j]}");
+                        string v = chars[j];
+                        questionBank[i - 1, j] = v; //things.ReadLine().Split(',');
+                                                         //MessageBox.Show($"{questionBank[i - 1, 0]}");
+                       
                     }
                     //line = things.ReadLine();//.Split(',');
-                    string[] names = things.ReadLine().Split(',');
-                    MessageBox.Show($"{names[i]}");
-                    questionBank[i - 1, ] = line;//things.ReadLine().Split(',');
-                    //MessageBox.Show($"{questionBank[i - 1, 0]}");
+
                 }
                 //foreach (string d in questionBank)
                 //{
