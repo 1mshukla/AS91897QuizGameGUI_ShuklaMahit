@@ -1,28 +1,28 @@
-Question,Answer A,Answer B,Answer C,Answer D
-What is the Full form of R.A.M?,Robust Access Memory,Real Automatic Machine,Random Access Memory,Random Access Mind
-Which gland releases the Growth Hormone?,Pineal gland,Pituatary gland,Adrenal glands,Pancreas
-What is the shape of NH3 molecule?,Tetrahedral,Trigonal Pyramidal,Trigonal Bipyramidal,Triangle
-How many chambers does a human heart have?,1,2,3,4
-What does the Ohm's law state?,V=IR,R=VI,F=ma,F=BIL
-Elections in New Zealand take place after how many years?,4,3,2,1
-What is the only thing that can move across dimensions?,Light,Time,Mass,Gravity
-How many carbons does a Benzene ring have?,6,8,10,12
-Which one of these is an irrational number?,5.5,2,?,-23
-What processes occur in the Mitochondria of a cell?,Urea cycle,Glycolysis,Boiling,Haematopoiesis
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
-,,,,
+Question,Answer A,Answer B,Answer C,Answer D,Correct
+What is the Full form of R.A.M?,Robust Access Memory,Real Automatic Machine,Random Access Memory,Random Access Mind,C
+Which gland releases the Growth Hormone?,Pineal gland,Pituatary gland,Adrenal glands,Pancreas,B
+What is the shape of NH3 molecule?,Tetrahedral,Trigonal Pyramidal,Trigonal Bipyramidal,Triangle,B
+How many chambers does a human heart have?,1,2,3,4,D
+What does the Ohm's law state?,V=IR,R=VI,F=ma,F=BIL,A
+Elections in New Zealand take place after how many years?,4,3,2,1,B
+What is the only thing that can move across dimensions?,Light,Time,Mass,Gravity,D
+How many carbons does a Benzene ring have?,6,8,10,12,A
+Which one of these is an irrational number?,5.5,2,2.43562235,-23,C
+What processes occur in the Mitochondria of a cell?,Urea cycle,Glycolysis,Boiling,Haematopoiesis,A
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,

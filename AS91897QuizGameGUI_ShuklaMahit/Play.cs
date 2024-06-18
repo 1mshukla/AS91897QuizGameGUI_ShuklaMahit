@@ -15,16 +15,18 @@ namespace AS91897QuizGameGUI_ShuklaMahit
     {
         //declare arrays
         // Dictionary
-        string[,] questionBank = new string[10, 5];
+        string[,] questionBank = new string[10, 6];
         //declare costants
         const int MOVE = 5;
         //declare variables
         int gravity = 2;
         int jumpUp = 20;
+        int counter = 0;
         bool left;
         bool right;
         bool fall;
         bool jump;
+        bool change;
         
 
         public Play()
@@ -34,23 +36,35 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             //string line;
             using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
             {
+
                
-                for (int i = 1; i == File.ReadAllLines("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv").Length; i++)
+                for (int i = 1; i < File.ReadAllLines("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv").Length; i++)
                 {
-                    string[] line = new string[5];
-                    line = things.ReadLine().Split(',');
-                    
-                    for (int j = 0; j < line.Length; j++)
+                    if (i+1 <= questionBank.GetLength(2))
                     {
-                        MessageBox.Show($"{chars[j]}");
-                        string v = chars[j];
-                        questionBank[i - 1, j] = v; //things.ReadLine().Split(',');
-                                                         //MessageBox.Show($"{questionBank[i - 1, 0]}");
-                       
+                        string[] line = new string[6];
+                        line = things.ReadLine().Split(',');
+
+                        for (int j = 0; j < line.Length; j++)
+                        {
+                            //MessageBox.Show($"{line[j]}");
+                            string quest = line[j];
+                            questionBank[i - 1, j] = quest; //things.ReadLine().Split(',');
+                            MessageBox.Show($"{questionBank[i - 1, j]}");
+
+                        }
                     }
+                    else
+                    {   
+                        MessageBox.Show($"break");
+                        break;
+
+                    }
+                    
                     //line = things.ReadLine();//.Split(',');
 
                 }
+
                 //foreach (string d in questionBank)
                 //{
                 //
@@ -149,7 +163,12 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void timerTick_Tick(object sender, EventArgs e)
         {
-            
+            listBox1.Items.Add($"Question: {questionBank[counter, 0]}");
+            listBox1.Items.Add($"Answer A is {questionBank[counter, 1]}");
+            listBox1.Items.Add($"Answer B is {questionBank[counter, 2]}");
+            listBox1.Items.Add($"Answer C is {questionBank[counter, 3]}");
+            listBox1.Items.Add($"Answer D is {questionBank[counter, 5]}");
+
 
             if (jump == true)
             {
@@ -218,8 +237,57 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                     player.Top += gravity;
                 }
             }
+            if (player.Bounds.IntersectsWith(answerA.Bounds))
+            {
+                if (questionBank[counter, 5] == "A")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            if (player.Bounds.IntersectsWith(answerB.Bounds))
+            {
+                if (questionBank[counter, 5] == "B")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            if (player.Bounds.IntersectsWith(answerC.Bounds))
+            {
+                if (questionBank[counter, 5] == "C")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            if (player.Bounds.IntersectsWith(answerD.Bounds))
+            {
+                if (questionBank[counter, 5] == "D")
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+
         }
 
-        
+        private void CheckAnswer()
+        {
+            
+        }
+
     }
 }
