@@ -23,12 +23,14 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         //declare variables
         int gravity = 2;
         int jumpUp = 20;
-        int counter = 0;
+        int counter = 1;
         int lineNum = 0;
         bool left;
         bool right;
         bool fall;
         bool jump;
+        bool showMessage;
+        bool correct;
 
         public Play()
         {
@@ -36,7 +38,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
 
             //string line;
-            using (StreamReader things = File.OpenText("QuizQuestionsfinal.csv"))
+            using (StreamReader things = File.OpenText("C:\\Users\\ANJANA\\Documents\\Visual Studio 2022\\New folder\\AS91897QuizGameGUI_ShuklaMahit\\QuizQuestions final.csv"))
             {
                 string currentLine;
                 while ((currentLine = things.ReadLine()) != null)
@@ -120,8 +122,6 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             //    Application.Exit();
             //}
 
-
-
             if (jump == true)
             {
                 if (jumpUp > 0)
@@ -165,6 +165,11 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                     {
                         fall = false;
                     }
+                    if (showMessage == false)
+                    {
+                        CheckAnswer();
+
+                    }
                 }
             }
 
@@ -190,11 +195,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
             }
             //checks answer
-            if (player.Bounds.IntersectsWith(object.Bounds()))
-            {
-
-            }
-            CheckAnswer();
+            
 
         }
 
@@ -202,90 +203,91 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         {
             if (player.Bounds.IntersectsWith(answerA.Bounds))
             {
-                if (questionBank[counter + 1, 5] == "A")
+                if (questionBank[counter, 5] == "A")
                 {
-                    MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(100);
+                    right = false;
+                    left = false;
+                    correct = true;
+                    DisplayAnswer();
+
 
                 }
                 else
                 {
-                    MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(100);
+                    right = false;
+                    left = false;
+                    correct = false;
+                    DisplayAnswer();
 
 
                 }
             }
             if (player.Bounds.IntersectsWith(answerB.Bounds))
             {
-                if (questionBank[counter + 1, 5] == "B")
+                if (questionBank[counter, 5] == "B")
                 {
-                    MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(100);
+                    right = false;
+                    left = false;
+                    correct = true;
+                    DisplayAnswer();
 
 
                 }
                 else
                 {
-                    MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(100);
+                    right = false;
+                    left = false;
+                    correct = false;
+                    DisplayAnswer();
 
 
                 }
             }
             if (player.Bounds.IntersectsWith(answerC.Bounds))
             {
-                if (questionBank[counter + 1, 5] == "C")
+                if (questionBank[counter, 5] == "C")
                 {
-                    MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(100);
+                    right = false;
+                    left = false;
+                    correct = true;
+                    DisplayAnswer();
 
                 }
                 else
                 {
-                    MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(1000);
+                    right = false;
+                    left = false;
+                    correct = false;
+                    DisplayAnswer();
 
 
                 }
             }
             if (player.Bounds.IntersectsWith(answerD.Bounds))
             {
-                if (questionBank[counter + 1, 5] == "D")
+                if (questionBank[counter, 5] == "D")
                 {
-                    MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(1000);
+                    right = false;
+                    left = false;
+                    correct = true;
+                    DisplayAnswer();
 
 
                 }
                 else
                 {
-                    MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[counter + 1, 6]}");
                     player.Location = new Point(408, 231);
-                    counter++;
-                    ShowQuestions();
-                    System.Threading.Thread.Sleep(1000);
+                    right = false;
+                    left = false;
+                    correct = false;
+                    DisplayAnswer();
 
 
                 }
@@ -293,20 +295,53 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         }
         private void DisplayAnswer()
         {
+            if (correct == true)
+            {
+                MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[counter, 6]}");
+                counter++;
+                ShowQuestions();
+                showMessage = false;
 
+            }
+            else
+            {
+                MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[counter, 6]}");
+                counter++;
+                ShowQuestions();
+                showMessage = false;
+            }
         }
 
         private void ShowQuestions()
         {
-            listBox1.Items.Clear();
-            listBox1.Items.Add($"Question: {questionBank[counter + 1, 0]}");
-            listBox1.Items.Add($"Answer A is {questionBank[counter + 1, 1]}");
-            listBox1.Items.Add($"Answer B is {questionBank[counter + 1, 2]}");
-            listBox1.Items.Add($"Answer C is {questionBank[counter + 1, 3]}");
-            listBox1.Items.Add($"Answer D is {questionBank[counter + 1, 4]}");
+            if (counter <= 10)
+            {
+                listBox1.Items.Clear();
+                listBox1.Items.Add($"Question: {questionBank[counter, 0]}");
+                listBox1.Items.Add($"Answer A is {questionBank[counter, 1]}");
+                listBox1.Items.Add($"Answer B is {questionBank[counter, 2]}");
+                listBox1.Items.Add($"Answer C is {questionBank[counter, 3]}");
+                listBox1.Items.Add($"Answer D is {questionBank[counter, 4]}");
+            }
+            else
+            {
+                MessageBox.Show("THANK YOU FOR PLAYING, QUIZ SCORES RECORDED IN NOTEPAD IN FOLDER!");
+                Application.Exit();
+            }
         }
 
-        
-
+        private void player_Click(object sender, EventArgs e)
+        {
+            foreach (Control clash in this.Controls)
+            {
+                if (clash is PictureBox && (string)clash.Tag == "object")
+                {
+                    if (player.Bounds.IntersectsWith(clash.Bounds))
+                    {
+                        CheckAnswer();
+                    }
+                }
+            }
+        }
     }
 }
