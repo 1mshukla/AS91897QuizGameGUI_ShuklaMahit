@@ -18,6 +18,11 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         //declare arrays
         // declare multidimensional array
         string[,] questionBank = new string[11, 7];
+        //string[,] correctAnswers = new string[11, 2];
+        //string[,] incorrectAnswers = new string[11, 2];
+        //declare lists
+        List<string> correctAnswers = new List<string>();
+        List<string> incorrectAnswers = new List<string>();
         //declare costants
         const int MOVE = 5;
         //declare variables
@@ -25,6 +30,9 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         int jumpUp = 20;
         int counter = 1;
         int lineNum = 0;
+        int lives = 3;
+        Random sequence = new Random();
+        int currentQuestion; 
         bool left;
         bool right;
         bool fall;
@@ -38,7 +46,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
 
             //string line;
-            using (StreamReader things = File.OpenText("C:\\Users\\ANJANA\\Documents\\Visual Studio 2022\\New folder\\AS91897QuizGameGUI_ShuklaMahit\\QuizQuestions final.csv"))
+            using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
             {
                 string currentLine;
                 while ((currentLine = things.ReadLine()) != null)
@@ -70,6 +78,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
             }
             ShowQuestions();
+            textBoxLives.Text = lives.ToString();
 
         }
 
@@ -301,14 +310,19 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 counter++;
                 ShowQuestions();
                 showMessage = false;
+                correctAnswers.Add(questionBank[counter,0]);
 
             }
             else
             {
                 MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[counter, 6]}");
                 counter++;
+                lives--;
+                textBoxLives.Text = lives.ToString();
                 ShowQuestions();
                 showMessage = false;
+                incorrectAnswers.Add(questionBank[counter, 0]);
+
             }
         }
 
@@ -316,16 +330,55 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         {
             if (counter <= 10)
             {
-                listBox1.Items.Clear();
-                listBox1.Items.Add($"Question: {questionBank[counter, 0]}");
-                listBox1.Items.Add($"Answer A is {questionBank[counter, 1]}");
-                listBox1.Items.Add($"Answer B is {questionBank[counter, 2]}");
-                listBox1.Items.Add($"Answer C is {questionBank[counter, 3]}");
-                listBox1.Items.Add($"Answer D is {questionBank[counter, 4]}");
+                if (lives > 0)
+                {
+                    sequence.Next();
+                    listBox1.Items.Clear();
+                    listBox1.Items.Add($"Question: {questionBank[counter, 0]}");
+                    listBox1.Items.Add($"Answer A is {questionBank[counter, 1]}");
+                    listBox1.Items.Add($"Answer B is {questionBank[counter, 2]}");
+                    listBox1.Items.Add($"Answer C is {questionBank[counter, 3]}");
+                    listBox1.Items.Add($"Answer D is {questionBank[counter, 4]}");
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, out of lives. GAME OVER!");
+                    using (StreamWriter summary = new StreamWriter("Answer Summary.txt"))
+                    {
+                        summary.WriteLine("You answered correctly:");
+                        foreach (string answer in correctAnswers)
+                        {
+                            summary.WriteLine(answer);
+                        }
+                        summary.WriteLine("You answered incorrectly:");
+                        foreach (string wrong in incorrectAnswers)
+                        {
+                            summary.WriteLine(wrong);
+                        }
+                        
+                    }
+                    Application.Exit();
+
+                }
+
             }
             else
             {
                 MessageBox.Show("THANK YOU FOR PLAYING, QUIZ SCORES RECORDED IN NOTEPAD IN FOLDER!");
+                using (StreamWriter summary = new StreamWriter("Answer Summary.txt"))
+                {
+                    summary.WriteLine("You answered correctly:");
+                    foreach (string answer in correctAnswers)
+                    {
+                        summary.WriteLine(answer);
+                    }
+                    summary.WriteLine("You answered incorrectly:");
+                    foreach (string wrong in incorrectAnswers)
+                    {
+                        summary.WriteLine(wrong);
+                    }
+
+                }
                 Application.Exit();
             }
         }
