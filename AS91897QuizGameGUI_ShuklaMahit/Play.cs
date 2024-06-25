@@ -23,12 +23,12 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         //declare lists
         List<string> correctAnswers = new List<string>();
         List<string> incorrectAnswers = new List<string>();
+        List<int> usedQuestions = new List<int>();
         //declare costants
         const int MOVE = 5;
         //declare variables
         int gravity = 2;
         int jumpUp = 20;
-        int counter = 1;
         int lineNum = 0;
         int lives = 3;
         Random sequence = new Random();
@@ -77,6 +77,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
 
             }
+            
             ShowQuestions();
             textBoxLives.Text = lives.ToString();
 
@@ -212,7 +213,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         {
             if (player.Bounds.IntersectsWith(answerA.Bounds))
             {
-                if (questionBank[counter, 5] == "A")
+                if (questionBank[currentQuestion, 5] == "A")
                 {
                     player.Location = new Point(408, 231);
                     right = false;
@@ -235,7 +236,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
             if (player.Bounds.IntersectsWith(answerB.Bounds))
             {
-                if (questionBank[counter, 5] == "B")
+                if (questionBank[currentQuestion, 5] == "B")
                 {
                     player.Location = new Point(408, 231);
                     right = false;
@@ -258,7 +259,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
             if (player.Bounds.IntersectsWith(answerC.Bounds))
             {
-                if (questionBank[counter, 5] == "C")
+                if (questionBank[currentQuestion, 5] == "C")
                 {
                     player.Location = new Point(408, 231);
                     right = false;
@@ -280,7 +281,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             }
             if (player.Bounds.IntersectsWith(answerD.Bounds))
             {
-                if (questionBank[counter, 5] == "D")
+                if (questionBank[currentQuestion, 5] == "D")
                 {
                     player.Location = new Point(408, 231);
                     right = false;
@@ -306,43 +307,50 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         {
             if (correct == true)
             {
-                MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[counter, 6]}");
-                counter++;
+                MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[currentQuestion, 6]}");
+                
                 ShowQuestions();
                 showMessage = false;
-                correctAnswers.Add(questionBank[counter,0]);
+                correctAnswers.Add(questionBank[currentQuestion,0]);
 
             }
             else
             {
-                MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[counter, 6]}");
-                counter++;
+                MessageBox.Show($"INCORRECT. THE ANSWER IS: {questionBank[currentQuestion, 6]}");
+                
                 lives--;
                 textBoxLives.Text = lives.ToString();
                 ShowQuestions();
                 showMessage = false;
-                incorrectAnswers.Add(questionBank[counter, 0]);
+                incorrectAnswers.Add(questionBank[currentQuestion, 0]);
 
             }
         }
 
         private void ShowQuestions()
         {
-            if (counter <= 10)
+            
+            if (lives > 0)
             {
-                if (lives > 0)
+                if (usedQuestions.Count <=4)
                 {
-                    sequence.Next();
+                    
+                    currentQuestion = sequence.Next(1, 10);
+                    while (usedQuestions.Contains(currentQuestion))
+                    {
+                        currentQuestion = sequence.Next(1, 10);
+                    }
+                    usedQuestions.Add(currentQuestion);
                     listBox1.Items.Clear();
-                    listBox1.Items.Add($"Question: {questionBank[counter, 0]}");
-                    listBox1.Items.Add($"Answer A is {questionBank[counter, 1]}");
-                    listBox1.Items.Add($"Answer B is {questionBank[counter, 2]}");
-                    listBox1.Items.Add($"Answer C is {questionBank[counter, 3]}");
-                    listBox1.Items.Add($"Answer D is {questionBank[counter, 4]}");
+                    listBox1.Items.Add($"Question: {questionBank[currentQuestion, 0]}");
+                    listBox1.Items.Add($"Answer A is {questionBank[currentQuestion, 1]}");
+                    listBox1.Items.Add($"Answer B is {questionBank[currentQuestion, 2]}");
+                    listBox1.Items.Add($"Answer C is {questionBank[currentQuestion, 3]}");
+                    listBox1.Items.Add($"Answer D is {questionBank[currentQuestion, 4]}");
                 }
                 else
                 {
-                    MessageBox.Show("Sorry, out of lives. GAME OVER!");
+                    MessageBox.Show("THANK YOU FOR PLAYING, QUIZ SCORES RECORDED IN NOTEPAD IN FOLDER!");
                     using (StreamWriter summary = new StreamWriter("Answer Summary.txt"))
                     {
                         summary.WriteLine("You answered correctly:");
@@ -355,16 +363,14 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                         {
                             summary.WriteLine(wrong);
                         }
-                        
+                    
                     }
                     Application.Exit();
-
                 }
-
             }
             else
             {
-                MessageBox.Show("THANK YOU FOR PLAYING, QUIZ SCORES RECORDED IN NOTEPAD IN FOLDER!");
+                MessageBox.Show("Sorry, out of lives. GAME OVER!");
                 using (StreamWriter summary = new StreamWriter("Answer Summary.txt"))
                 {
                     summary.WriteLine("You answered correctly:");
@@ -377,10 +383,13 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                     {
                         summary.WriteLine(wrong);
                     }
-
+                    
                 }
                 Application.Exit();
+
             }
+
+            
         }
 
         private void player_Click(object sender, EventArgs e)

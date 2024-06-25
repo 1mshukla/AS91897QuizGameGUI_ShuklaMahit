@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.timerTick = new System.Windows.Forms.Timer(this.components);
+            this.labelLives = new System.Windows.Forms.Label();
+            this.textBoxLives = new System.Windows.Forms.TextBox();
             this.block3 = new System.Windows.Forms.PictureBox();
             this.block1 = new System.Windows.Forms.PictureBox();
             this.block2 = new System.Windows.Forms.PictureBox();
@@ -39,9 +42,6 @@
             this.answerB = new System.Windows.Forms.PictureBox();
             this.block4 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
-            this.timerTick = new System.Windows.Forms.Timer(this.components);
-            this.labelLives = new System.Windows.Forms.Label();
-            this.textBoxLives = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.block3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.block1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.block2)).BeginInit();
@@ -60,6 +60,29 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(331, 134);
             this.listBox1.TabIndex = 22;
+            // 
+            // timerTick
+            // 
+            this.timerTick.Enabled = true;
+            this.timerTick.Interval = 1;
+            this.timerTick.Tick += new System.EventHandler(this.timerTick_Tick);
+            // 
+            // labelLives
+            // 
+            this.labelLives.AutoSize = true;
+            this.labelLives.Location = new System.Drawing.Point(8, 13);
+            this.labelLives.Name = "labelLives";
+            this.labelLives.Size = new System.Drawing.Size(56, 13);
+            this.labelLives.TabIndex = 23;
+            this.labelLives.Text = "Lives Left:";
+            // 
+            // textBoxLives
+            // 
+            this.textBoxLives.Location = new System.Drawing.Point(70, 10);
+            this.textBoxLives.Name = "textBoxLives";
+            this.textBoxLives.ReadOnly = true;
+            this.textBoxLives.Size = new System.Drawing.Size(24, 20);
+            this.textBoxLives.TabIndex = 24;
             // 
             // block3
             // 
@@ -93,40 +116,46 @@
             // 
             // answerC
             // 
-            this.answerC.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.answerC.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.answerC.Image = global::AS91897QuizGameGUI_ShuklaMahit.Properties.Resources.large_Letter_c;
             this.answerC.Location = new System.Drawing.Point(8, 463);
             this.answerC.Name = "answerC";
-            this.answerC.Size = new System.Drawing.Size(100, 50);
+            this.answerC.Size = new System.Drawing.Size(100, 74);
             this.answerC.TabIndex = 17;
             this.answerC.TabStop = false;
             this.answerC.Tag = "object";
             // 
             // answerD
             // 
-            this.answerD.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.answerD.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.answerD.Image = global::AS91897QuizGameGUI_ShuklaMahit.Properties.Resources.Letter_D;
             this.answerD.Location = new System.Drawing.Point(815, 463);
             this.answerD.Name = "answerD";
-            this.answerD.Size = new System.Drawing.Size(100, 50);
+            this.answerD.Size = new System.Drawing.Size(100, 74);
             this.answerD.TabIndex = 16;
             this.answerD.TabStop = false;
             this.answerD.Tag = "object";
             // 
             // answerA
             // 
-            this.answerA.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.answerA.Location = new System.Drawing.Point(8, 148);
+            this.answerA.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.answerA.BackgroundImage = global::AS91897QuizGameGUI_ShuklaMahit.Properties.Resources.Letter_A1;
+            this.answerA.ErrorImage = null;
+            this.answerA.ImageLocation = "centre";
+            this.answerA.Location = new System.Drawing.Point(12, 124);
             this.answerA.Name = "answerA";
-            this.answerA.Size = new System.Drawing.Size(100, 50);
+            this.answerA.Size = new System.Drawing.Size(100, 74);
             this.answerA.TabIndex = 15;
             this.answerA.TabStop = false;
             this.answerA.Tag = "object";
             // 
             // answerB
             // 
-            this.answerB.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.answerB.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.answerB.Image = global::AS91897QuizGameGUI_ShuklaMahit.Properties.Resources.Letter_D;
             this.answerB.Location = new System.Drawing.Point(815, 148);
             this.answerB.Name = "answerB";
-            this.answerB.Size = new System.Drawing.Size(100, 50);
+            this.answerB.Size = new System.Drawing.Size(100, 74);
             this.answerB.TabIndex = 14;
             this.answerB.TabStop = false;
             this.answerB.Tag = "object";
@@ -150,29 +179,6 @@
             this.player.TabIndex = 12;
             this.player.TabStop = false;
             this.player.Click += new System.EventHandler(this.player_Click);
-            // 
-            // timerTick
-            // 
-            this.timerTick.Enabled = true;
-            this.timerTick.Interval = 1;
-            this.timerTick.Tick += new System.EventHandler(this.timerTick_Tick);
-            // 
-            // labelLives
-            // 
-            this.labelLives.AutoSize = true;
-            this.labelLives.Location = new System.Drawing.Point(8, 13);
-            this.labelLives.Name = "labelLives";
-            this.labelLives.Size = new System.Drawing.Size(56, 13);
-            this.labelLives.TabIndex = 23;
-            this.labelLives.Text = "Lives Left:";
-            // 
-            // textBoxLives
-            // 
-            this.textBoxLives.Location = new System.Drawing.Point(70, 10);
-            this.textBoxLives.Name = "textBoxLives";
-            this.textBoxLives.ReadOnly = true;
-            this.textBoxLives.Size = new System.Drawing.Size(24, 20);
-            this.textBoxLives.TabIndex = 24;
             // 
             // Play
             // 

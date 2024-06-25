@@ -74,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +88,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Letter A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smaller letter A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Piskel-1.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Letter A1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Letter D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Letter C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Larger Letter C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\large Letter c.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
