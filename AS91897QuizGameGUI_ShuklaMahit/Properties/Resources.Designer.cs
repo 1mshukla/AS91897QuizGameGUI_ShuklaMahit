@@ -103,6 +103,16 @@ namespace AS91897QuizGameGUI_ShuklaMahit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap letter_B_trial {
+            get {
+                object obj = ResourceManager.GetObject("letter B trial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Letter_C {
             get {
                 object obj = ResourceManager.GetObject("Letter C", resourceCulture);

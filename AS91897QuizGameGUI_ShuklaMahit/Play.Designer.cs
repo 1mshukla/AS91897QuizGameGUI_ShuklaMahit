@@ -152,10 +152,10 @@
             // answerB
             // 
             this.answerB.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.answerB.Image = global::AS91897QuizGameGUI_ShuklaMahit.Properties.Resources.Letter_D;
-            this.answerB.Location = new System.Drawing.Point(815, 148);
+            this.answerB.Image = global::AS91897QuizGameGUI_ShuklaMahit.Properties.Resources.letter_B_trial;
+            this.answerB.Location = new System.Drawing.Point(815, 124);
             this.answerB.Name = "answerB";
-            this.answerB.Size = new System.Drawing.Size(100, 74);
+            this.answerB.Size = new System.Drawing.Size(93, 74);
             this.answerB.TabIndex = 14;
             this.answerB.TabStop = false;
             this.answerB.Tag = "object";
