@@ -215,7 +215,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "A")
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = true;
@@ -225,7 +225,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = false;
@@ -238,7 +238,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "B")
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = true;
@@ -248,7 +248,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = false;
@@ -261,7 +261,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "C")
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = true;
@@ -270,7 +270,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = false;
@@ -283,7 +283,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "D")
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = true;
@@ -293,7 +293,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(408, 231);
+                    player.Location = new Point(483, 222);
                     right = false;
                     left = false;
                     correct = false;
@@ -309,9 +309,10 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 MessageBox.Show($"CORRECT. THE ANSWER IS: {questionBank[currentQuestion, 6]}");
                 
-                ShowQuestions();
+                
                 showMessage = false;
                 correctAnswers.Add(questionBank[currentQuestion,0]);
+                ShowQuestions();
 
             }
             else
@@ -320,10 +321,9 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 
                 lives--;
                 textBoxLives.Text = lives.ToString();
-                ShowQuestions();
                 showMessage = false;
                 incorrectAnswers.Add(questionBank[currentQuestion, 0]);
-
+                ShowQuestions();
             }
         }
 
@@ -392,18 +392,6 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             
         }
 
-        private void player_Click(object sender, EventArgs e)
-        {
-            foreach (Control clash in this.Controls)
-            {
-                if (clash is PictureBox && (string)clash.Tag == "object")
-                {
-                    if (player.Bounds.IntersectsWith(clash.Bounds))
-                    {
-                        CheckAnswer();
-                    }
-                }
-            }
-        }
+       
     }
 }

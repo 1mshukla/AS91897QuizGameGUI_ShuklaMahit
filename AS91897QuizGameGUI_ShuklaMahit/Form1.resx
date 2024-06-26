@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Welcome to the QUIZ JUMPER. Here you get variety of 5 questions that you have to answer by jumping your player using arrow keys and space bar to the appropriate block indicating the answer code for the multichoice. Each correct answer rewards 1 point and each incorrect answer takes away 1 life point. You have 3 life points after which the game ends. GOOD LUCK AND HAVE FUN!</value>
-  </data>
 </root>
