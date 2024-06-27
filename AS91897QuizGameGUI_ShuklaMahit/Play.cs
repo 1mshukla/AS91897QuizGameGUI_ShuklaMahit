@@ -27,7 +27,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         //declare costants
         const int MOVE = 5;
         //declare variables
-        int gravity = 2;
+        int gravity = 4;
         int jumpUp = 20;
         int lineNum = 0;
         int lives = 3;
@@ -82,6 +82,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             textBoxLives.Text = lives.ToString();
 
         }
+
 
         private void Play_KeyDown_1(object sender, KeyEventArgs e)
         {
@@ -198,10 +199,12 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 if (player.Bottom > this.Height - 40)
                 {
                     fall = false;
+                    
                 }
                 else
                 {
                     player.Top += gravity;
+                    
                 }
             }
             //checks answer
@@ -392,6 +395,6 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             
         }
 
-       
+        
     }
 }
