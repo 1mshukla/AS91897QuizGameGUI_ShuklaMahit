@@ -63,6 +63,16 @@ namespace AS91897QuizGameGUI_ShuklaMahit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap final_mario_player_sprite {
+            get {
+                object obj = ResourceManager.GetObject("final mario player sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap large_Letter_c {
             get {
                 object obj = ResourceManager.GetObject("large Letter c", resourceCulture);
@@ -133,9 +143,29 @@ namespace AS91897QuizGameGUI_ShuklaMahit.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mario_player_sprite {
+            get {
+                object obj = ResourceManager.GetObject("mario player sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap New_Piskel_1_png {
             get {
                 object obj = ResourceManager.GetObject("New Piskel-1.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Smaller_Final_Mario_sprite {
+            get {
+                object obj = ResourceManager.GetObject("Smaller Final Mario sprite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

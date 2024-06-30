@@ -116,5 +116,14 @@
   <ItemGroup>
     <None Include="Resources\letter B trial.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mario player sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final mario player sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Smaller Final Mario sprite.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

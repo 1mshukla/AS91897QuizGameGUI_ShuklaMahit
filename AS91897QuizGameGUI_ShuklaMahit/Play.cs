@@ -15,11 +15,8 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
     public partial class Play : Form
     {
-        //declare arrays
         // declare multidimensional array
         string[,] questionBank = new string[11, 7];
-        //string[,] correctAnswers = new string[11, 2];
-        //string[,] incorrectAnswers = new string[11, 2];
         //declare lists
         List<string> correctAnswers = new List<string>();
         List<string> incorrectAnswers = new List<string>();
@@ -39,12 +36,13 @@ namespace AS91897QuizGameGUI_ShuklaMahit
         bool jump;
         bool showMessage;
         bool correct;
+        bool constantJump = true;
 
         public Play()
         {
             InitializeComponent();
 
-
+            fall = true;
             //string line;
             using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
             {
@@ -80,7 +78,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             
             ShowQuestions();
             textBoxLives.Text = lives.ToString();
-
+            
         }
 
 
@@ -89,18 +87,19 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
             if (e.KeyCode == Keys.Left)
             {
-
+                constantJump = false;
                 left = true;
             }
             else if (e.KeyCode == Keys.Right)
             {
-
+                constantJump = false;
                 right = true;
             }
             if (jump != true && fall != true)
             {
                 if (e.KeyCode == Keys.Space)
                 {
+                    constantJump = false;
                     jump = true;
                 }
             }
@@ -127,11 +126,10 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
         private void timerTick_Tick(object sender, EventArgs e)
         {
-            //if (counter > questionBank.GetLength(2))
-            //{
-            //    MessageBox.Show("THANK YOU FOR PLAYING, QUIZ FINISHED!");
-            //    Application.Exit();
-            //}
+            if (constantJump == true && fall == false)
+            {
+                jump = true;
+            }
 
             if (jump == true)
             {
