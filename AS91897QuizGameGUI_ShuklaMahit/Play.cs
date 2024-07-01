@@ -44,7 +44,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
             fall = true;
             //string line;
-            using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
+            using (StreamReader things = File.OpenText("C:/Users/ANJANA/Documents/Visual Studio 2022/12IT AS91897QuizGameGUI/QuizQuestions final.csv"))
             {
                 string currentLine;
                 while ((currentLine = things.ReadLine()) != null)
@@ -162,11 +162,11 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                         //jump = false;
                         fall = true;
                     }
-                    if (player.Bounds.IntersectsWith(x.Bounds) && right == true && fall == true && player.Bottom - 2 > x.Top)
+                    if (player.Bounds.IntersectsWith(x.Bounds) && right == true && fall == true && player.Bottom - gravity > x.Top)
                     {
                         right = false;
                     }
-                    if (player.Bounds.IntersectsWith(x.Bounds) && left == true && fall == true && player.Bottom - 2 > x.Top)
+                    if (player.Bounds.IntersectsWith(x.Bounds) && left == true && fall == true && player.Bottom - gravity > x.Top)
                     {
                         left = false;
                     }
