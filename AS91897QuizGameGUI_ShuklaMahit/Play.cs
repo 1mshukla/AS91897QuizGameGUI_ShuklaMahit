@@ -44,7 +44,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
             fall = true;
             //string line;
-            using (StreamReader things = File.OpenText("C:/Users/ANJANA/Documents/Visual Studio 2022/12IT AS91897QuizGameGUI/QuizQuestions final.csv"))
+            using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
             {
                 string currentLine;
                 while ((currentLine = things.ReadLine()) != null)
@@ -180,6 +180,18 @@ namespace AS91897QuizGameGUI_ShuklaMahit
 
                     }
                 }
+            }
+
+            
+
+            if (player.Right > this.Width && right == true)
+            {
+                right = false;
+
+            }
+            else if (player.Left < 0 && left == true)
+            {
+                left = false;
             }
 
             if (right == true)

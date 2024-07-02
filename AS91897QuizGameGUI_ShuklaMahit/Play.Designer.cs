@@ -236,10 +236,10 @@
             // 
             this.player.BackColor = System.Drawing.Color.WhiteSmoke;
             this.player.Image = global::AS91897QuizGameGUI_ShuklaMahit.Properties.Resources.Smaller_Final_Mario_sprite;
-            this.player.Location = new System.Drawing.Point(468, 222);
+            this.player.Location = new System.Drawing.Point(483, 222);
             this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(96, 131);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.player.Size = new System.Drawing.Size(49, 67);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.player.TabIndex = 12;
             this.player.TabStop = false;
             // 
