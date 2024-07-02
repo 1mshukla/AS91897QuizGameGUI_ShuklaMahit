@@ -43,8 +43,9 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             InitializeComponent();
 
             fall = true;
-            //string line;
-            using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
+            //"K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"
+            //"C:/Users/ANJANA/Documents/Visual Studio 2022/12IT AS91897QuizGameGUI/QuizQuestions final.csv"
+            using (StreamReader things = File.OpenText("C:/Users/ANJANA/Documents/Visual Studio 2022/12IT AS91897QuizGameGUI/QuizQuestions final.csv"))
             {
                 string currentLine;
                 while ((currentLine = things.ReadLine()) != null)
@@ -228,7 +229,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "A")
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = true;
@@ -238,7 +239,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = false;
@@ -251,7 +252,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "B")
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = true;
@@ -261,7 +262,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = false;
@@ -274,7 +275,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "C")
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = true;
@@ -283,7 +284,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = false;
@@ -296,7 +297,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "D")
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = true;
@@ -306,7 +307,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(483, 222);
+                    player.Location = new Point(715, 253);
                     right = false;
                     left = false;
                     correct = false;
@@ -356,10 +357,10 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                     usedQuestions.Add(currentQuestion);
                     listBox1.Items.Clear();
                     listBox1.Items.Add($"Question: {questionBank[currentQuestion, 0]}");
-                    listBox1.Items.Add($"Answer A is {questionBank[currentQuestion, 1]}");
-                    listBox1.Items.Add($"Answer B is {questionBank[currentQuestion, 2]}");
-                    listBox1.Items.Add($"Answer C is {questionBank[currentQuestion, 3]}");
-                    listBox1.Items.Add($"Answer D is {questionBank[currentQuestion, 4]}");
+                    listBox1.Items.Add($"Option A is {questionBank[currentQuestion, 1]}");
+                    listBox1.Items.Add($"Option B is {questionBank[currentQuestion, 2]}");
+                    listBox1.Items.Add($"Option C is {questionBank[currentQuestion, 3]}");
+                    listBox1.Items.Add($"Option D is {questionBank[currentQuestion, 4]}");
                 }
                 else
                 {
