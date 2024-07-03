@@ -20,13 +20,13 @@ namespace AS91897QuizGameGUI_ShuklaMahit
     {
         //declare costants
         const int MOVE = 5;
-        const int marioX = 536;
-        const int marioY = 206;
-        const int questionNums = 11;
-        const int multichoiceNums = 7;
-        const int screenIllusion = 40;
+        const int MARIOX = 536;
+        const int MARIOY = 206;
+        const int QUESTION_NUMS = 11;
+        const int MULTICHOICE_NUMS = 7;
+        const int SCREEN_ILLUSION = 40;
         // declare multidimensional array for quesiton bank
-        string[,] questionBank = new string[questionNums, multichoiceNums];
+        string[,] questionBank = new string[QUESTION_NUMS, MULTICHOICE_NUMS];
         //declare lists
         List<string> correctAnswers = new List<string>();
         List<string> incorrectAnswers = new List<string>();
@@ -59,7 +59,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             //"K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"
             //"C:/Users/ANJANA/Documents/Visual Studio 2022/12IT AS91897QuizGameGUI/QuizQuestions final.csv"
             //Takes in the questionbank file and stores it in the questionBank multidimensional array as questions and options
-            using (StreamReader things = File.OpenText("K:/2024_SR_12IT1/Programming/AS91897QuizGameGUI_ShuklaMahit/QuizQuestions final.csv"))
+            using (StreamReader things = File.OpenText("QuizQuestions final.csv"))
             {
                 while ((currentLine = things.ReadLine()) != null)
                 {
@@ -150,8 +150,6 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                     jump = false;
                     jumpUp = 20;
                 }
-
-
             }
 
             //if player anywhere in air then fall boolean turned on
@@ -213,7 +211,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             //induces fall and stops if reached bottom
             if (fall == true)
             {
-                if (player.Bottom > this.Height - screenIllusion)
+                if (player.Bottom > this.Height - SCREEN_ILLUSION)
                 {
                     fall = false;
                     
@@ -235,7 +233,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "A")
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = true;
@@ -245,7 +243,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = false;
@@ -258,7 +256,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "B")
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = true;
@@ -268,7 +266,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = false;
@@ -281,7 +279,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "C")
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = true;
@@ -290,7 +288,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = false;
@@ -303,7 +301,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
             {
                 if (questionBank[currentQuestion, 5] == "D")
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = true;
@@ -313,7 +311,7 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 }
                 else
                 {
-                    player.Location = new Point(marioX, marioY);
+                    player.Location = new Point(MARIOX, MARIOY);
                     right = false;
                     left = false;
                     correct = false;
@@ -355,10 +353,10 @@ namespace AS91897QuizGameGUI_ShuklaMahit
                 if (usedQuestions.Count <=4)
                 {
                     
-                    currentQuestion = sequence.Next(1, questionNums - 1);
+                    currentQuestion = sequence.Next(1, QUESTION_NUMS - 1);
                     while (usedQuestions.Contains(currentQuestion))
                     {
-                        currentQuestion = sequence.Next(1, questionNums - 1);
+                        currentQuestion = sequence.Next(1, QUESTION_NUMS - 1);
                     }
                     usedQuestions.Add(currentQuestion);
                     listBox1.Items.Clear();
